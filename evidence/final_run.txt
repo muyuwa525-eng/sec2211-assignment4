@@ -1,0 +1,43 @@
+
+==================== STANDARD FILE DESCRIPTORS ====================
+FD 0 = stdin, FD 1 = stdout, FD 2 = stderr (always open when the process starts)
+PID of this process: 31481  (look it up in /proc/31481/fd)
+
+==================== OPEN ====================
+open("test.txt", O_RDWR|O_CREAT) succeeded.
+Returned file descriptor: 3
+(Note: 0, 1, 2 were already taken, so this is the next free slot.)
+
+==================== FSTAT - FILE METADATA ====================
+Size:  20 bytes
+Inode: 2765596
+Permissions: -rw-rw-r--
+Owner UID: 1000, GID: 1000
+
+==================== READ ====================
+read() returned 20 bytes.
+Content read: "hello from testfile
+"
+
+==================== LSEEK ====================
+Current offset after read: 20
+lseek(fd, 0, SEEK_SET) -> offset now: 0 (back to start)
+lseek(fd, 0, SEEK_END) -> offset now: 20 (end of file)
+
+==================== WRITE ====================
+write() succeeded, 54 bytes written to end of file.
+
+==================== DUP2 REDIRECTION DEMO ====================
+Before dup2(): FD 1 (stdout) points to the terminal.
+After dup2() restore: FD 1 points back to the terminal.
+Check secinspect_output.txt to see the redirected line.
+
+==================== ERROR HANDLING ON A BAD DESCRIPTOR ====================
+read() on invalid fd 9999 failed as expected.
+errno = 9 (Bad file descriptor)
+
+==================== CLOSE ====================
+fd 3 closed successfully.
+Closing fd 3 a second time correctly failed: Bad file descriptor
+
+==================== DONE ====================

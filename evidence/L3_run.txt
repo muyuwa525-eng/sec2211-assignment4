@@ -1,0 +1,6 @@
+Opened test.txt, got fd 3
+File size: 20 bytes
+Read 20 bytes: "hello from testfile
+"
+Offset after read: 20
+Offset after seeking back to start: 0

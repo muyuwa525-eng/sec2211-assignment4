@@ -1,0 +1,1 @@
+Opened test.txt, got fd 3
