@@ -1,12 +1,10 @@
-82846 accept(3, {sa_family=AF_INET, sin_port=htons(41016), sin_addr=inet_addr("127.0.0.1")}, [16]) = 4
-82846 write(1, "[server] accepted: NEW fd = 4 (l"..., 78) = 78
-82846 recvfrom(4, "STATUS", 255, 0, NULL, NULL) = 6
-82846 write(1, "[server] received: \"STATUS\" (6 b"..., 38) = 38
-82846 sendto(4, "OK monitoring-service-active upt"..., 39, 0, NULL, 0) = 39
-82846 write(1, "[server] sent: \"OK monitoring-se"..., 55) = 55
-82846 close(4)                          = 0
-82846 write(1, "\"[server] closed client fd 4\n\n", 30) = 30
-82846 write(1, "[server] calling accept() - bloc"..., 64) = 64
-82846 accept(3, 0x7ffc7f304410, [16])   = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
-82846 --- SIGTERM {si_signo=SIGTERM, si_code=SI_USER, si_pid=71093, si_uid=1000} ---
-82846 +++ killed by SIGTERM +++
+83234 accept(3, {sa_family=AF_INET, sin_port=htons(60538), sin_addr=inet_addr("127.0.0.1")}, [16]) = 4
+83234 write(1, "[server] accepted: NEW fd = 4 (l"..., 78) = 78
+83234 recvfrom(4, "STATUS", 255, 0, NULL, NULL) = 6
+83234 write(1, "[server] received: \"STATUS\" (6 b"..., 38) = 38
+83234 sendto(4, "OK monitoring-service-active upt"..., 39, 0, NULL, 0) = 39
+83234 write(1, "[server] sent: \"OK monitoring-se"..., 55) = 55
+83234 close(4)                          = 0
+83234 write(1, "\"[server] closed client fd 4\n\n", 30) = 30
+83234 write(1, "[server] calling accept() - bloc"..., 64) = 64
+83234 accept(3,  <detached ...>
