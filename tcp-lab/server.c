@@ -40,10 +40,20 @@ int main() {
                client_fd, listen_fd, ntohs(client_addr.sin_port));
 
         char buf[BUF_SIZE];
-        ssize_t n = recv(client_fd, buf, sizeof(buf) - 1, 0);
-        if (n <= 0) { close(client_fd); continue; }
+                ssize_t n = recv(client_fd, buf, sizeof(buf) - 1, 0);
+        if (n <= 0) {
+            printf("[server] client disconnected or sent no data (n=%zd)\n", n);
+            close(client_fd);
+            continue;
+        }
         buf[n] = '\0';
         buf[strcspn(buf, "\r\n")] = 0;
+        if (strlen(buf) == 0) {
+            const char *msg = "ERROR empty command\n";
+            send(client_fd, msg, strlen(msg), 0);
+            close(client_fd);
+            continue;
+        }
         printf("[server] received: \"%s\" (%zd bytes)\n", buf, n);
 
         char response[BUF_SIZE];
